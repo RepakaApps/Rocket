@@ -59,6 +59,7 @@ public class Player : MonoBehaviour
     public void ButtonUp()
     {
         print("вверх");
+        rigidBody.AddRelativeForce(Vector3.up * flySpeed);
     }
 
     public void ButtonLeft()
