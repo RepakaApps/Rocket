@@ -1,9 +1,10 @@
 ﻿using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class Player : MonoBehaviour
 {
     public Rigidbody rigidBody;
-    public AudioSource audioSource;
+    AudioSource audioSource;
     public ParticleSystem flyPartical;
 
     public float rotSpeed;
@@ -12,8 +13,8 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        rigidBody.GetComponent<Rigidbody>();
-        audioSource.GetComponent<AudioSource>();
+        rigidBody = GetComponent<Rigidbody>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -23,7 +24,7 @@ public class Player : MonoBehaviour
         Rotation();
     }
 
-    void Lounch()
+    public void Lounch()
     {
         if (Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.W))
         {
@@ -54,21 +55,5 @@ public class Player : MonoBehaviour
         {
             transform.Rotate(-Vector3.forward * rotationSpeed);
         }
-    }
-
-    public void ButtonUp()
-    {
-        print("вверх");
-        rigidBody.AddRelativeForce(Vector3.up * flySpeed);
-    }
-
-    public void ButtonLeft()
-    {
-        print("влево");
-    }
-
-    public void ButtonRight()
-    {
-        print("вправо");
     }
 }
