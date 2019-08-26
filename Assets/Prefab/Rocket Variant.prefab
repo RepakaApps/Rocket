@@ -701,7 +701,7 @@ MonoBehaviour:
   rigidBody: {fileID: 564534394784384013}
   flyPartical: {fileID: 2922225391560070765}
   rotSpeed: 100
-  flySpeed: 25
+  flySpeed: 50
 --- !u!65 &564534394784384003
 BoxCollider:
   m_ObjectHideFlags: 0
