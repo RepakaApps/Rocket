@@ -23,12 +23,22 @@ public class ButtonLeft : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     // Update is called once per frame
     private void Update()
     {
+        RotationLeft();
+    }
+
+    void RotationLeft()
+    {
         float rotationSpeed = rotSpeed * Time.deltaTime;
 
         pl.rigidBody.freezeRotation = true;
         if (onObject && Input.GetMouseButton(0))
         {
             pl.transform.Rotate(-Vector3.forward * rotationSpeed);
+        }
+
+        if(pl.healthBar.value == 0)
+        {
+            rotSpeed = 0;
         }
     }
 }

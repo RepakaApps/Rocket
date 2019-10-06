@@ -702,6 +702,8 @@ MonoBehaviour:
   flyPartical: {fileID: 2922225391560070765}
   rotSpeed: 100
   flySpeed: 50
+  healthPlayer: 100
+  healthBar: {fileID: 0}
 --- !u!65 &564534394784384003
 BoxCollider:
   m_ObjectHideFlags: 0

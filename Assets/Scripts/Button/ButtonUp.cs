@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class ButtonUp : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
@@ -24,11 +25,18 @@ public class ButtonUp : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     // Update is called once per frame
     private void Update()
     {
-        if(onObject && Input.GetMouseButton(0))
+        Lounch();
+        HealthBar();
+    }
+
+    void Lounch()
+    {
+        if (onObject && Input.GetMouseButton(0))
         {
             //player.transform.Translate(Vector3.up * flySpeed * Time.deltaTime);
             pl.rigidBody.AddRelativeForce(Vector3.up * pl.flySpeed);
-            if(audioSource.isPlaying == false)
+            pl.healthPlayer -= 0.5;
+            if (audioSource.isPlaying == false)
             {
                 audioSource.Play();
                 flyPartical.Play();
@@ -36,6 +44,17 @@ public class ButtonUp : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         }
         else
         {
+            audioSource.Stop();
+            flyPartical.Stop();
+        }
+    }
+
+    void HealthBar()
+    {
+        if(pl.healthBar.value == 0)
+        {
+            pl.flySpeed = 0;
+            pl.rotSpeed = 0;
             audioSource.Stop();
             flyPartical.Stop();
         }

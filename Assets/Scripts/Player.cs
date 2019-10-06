@@ -1,5 +1,8 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
+using System.Collections;
 
 public class Player : MonoBehaviour
 {
@@ -9,6 +12,9 @@ public class Player : MonoBehaviour
 
     public float rotSpeed;
     public float flySpeed;
+
+    public double healthPlayer;
+    public Slider healthBar;
 
     // Start is called before the first frame update
     void Start()
@@ -22,6 +28,7 @@ public class Player : MonoBehaviour
     {
         Lounch();
         Rotation();
+        HealthBar();
     }
 
     public void Lounch()
@@ -29,6 +36,7 @@ public class Player : MonoBehaviour
         if (Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.W))
         {
             rigidBody.AddRelativeForce(Vector3.up * flySpeed);
+            healthPlayer -= 0.5;
             if(audioSource.isPlaying == false)
             {
                 audioSource.Play();
@@ -54,6 +62,19 @@ public class Player : MonoBehaviour
         else if(Input.GetKey(KeyCode.A))
         {
             transform.Rotate(-Vector3.forward * rotationSpeed);
+        }
+    }
+
+    void HealthBar()
+    {
+        healthBar.value = (float)healthPlayer;
+
+        if(healthBar.value == 0)
+        {
+            flySpeed = 0;
+            rotSpeed = 0;
+            audioSource.Stop();
+            flyPartical.Stop();
         }
     }
 }
