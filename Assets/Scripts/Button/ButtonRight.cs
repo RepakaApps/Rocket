@@ -35,10 +35,5 @@ public class ButtonRight : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         {
             pl.transform.Rotate(Vector3.forward * rotationSpeed);
         }
-
-        if(pl.healthBar.value == 0)
-        {
-            rotSpeed = 0;
-        }
     }
 }

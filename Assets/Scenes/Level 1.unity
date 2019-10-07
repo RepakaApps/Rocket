@@ -580,21 +580,6 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 963194227}
-    - target: {fileID: 6722077865079588869, guid: 9b62af8518bc1214e965062933b684bc,
-        type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 208110445}
-    - target: {fileID: 6722077865079588869, guid: 9b62af8518bc1214e965062933b684bc,
-        type: 3}
-      propertyPath: pl
-      value: 
-      objectReference: {fileID: 208110447}
-    - target: {fileID: 6722077865079588869, guid: 9b62af8518bc1214e965062933b684bc,
-        type: 3}
-      propertyPath: flyPartical
-      value: 
-      objectReference: {fileID: 689165619}
     - target: {fileID: 6722077866741972532, guid: 9b62af8518bc1214e965062933b684bc,
         type: 3}
       propertyPath: player
@@ -625,6 +610,18 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1518809969, guid: 9b62af8518bc1214e965062933b684bc, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 208110445}
+    - target: {fileID: 1518809969, guid: 9b62af8518bc1214e965062933b684bc, type: 3}
+      propertyPath: pl
+      value: 
+      objectReference: {fileID: 208110447}
+    - target: {fileID: 1518809969, guid: 9b62af8518bc1214e965062933b684bc, type: 3}
+      propertyPath: flyPartical
+      value: 
+      objectReference: {fileID: 689165619}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9b62af8518bc1214e965062933b684bc, type: 3}
 --- !u!114 &6722077866125507378 stripped

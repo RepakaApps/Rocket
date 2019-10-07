@@ -13,7 +13,7 @@ public class Player : MonoBehaviour
     public float rotSpeed;
     public float flySpeed;
 
-    public double healthPlayer;
+    public int healthPlayer;
     public Slider healthBar;
 
     // Start is called before the first frame update
@@ -35,8 +35,10 @@ public class Player : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.W))
         {
-            rigidBody.AddRelativeForce(Vector3.up * flySpeed);
-            healthPlayer -= 0.5;
+            float flyningSpeed = flySpeed * Time.deltaTime;
+
+            rigidBody.AddRelativeForce(Vector3.up * flyningSpeed);
+            healthPlayer -= 1;
             if(audioSource.isPlaying == false)
             {
                 audioSource.Play();
@@ -67,12 +69,11 @@ public class Player : MonoBehaviour
 
     void HealthBar()
     {
-        healthBar.value = (float)healthPlayer;
+        healthBar.value = healthPlayer;
 
         if(healthBar.value == 0)
         {
             flySpeed = 0;
-            rotSpeed = 0;
             audioSource.Stop();
             flyPartical.Stop();
         }

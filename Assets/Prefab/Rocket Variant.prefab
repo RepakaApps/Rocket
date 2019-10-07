@@ -701,7 +701,7 @@ MonoBehaviour:
   rigidBody: {fileID: 564534394784384013}
   flyPartical: {fileID: 2922225391560070765}
   rotSpeed: 100
-  flySpeed: 50
+  flySpeed: 3500
   healthPlayer: 100
   healthBar: {fileID: 0}
 --- !u!65 &564534394784384003
