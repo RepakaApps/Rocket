@@ -6,7 +6,8 @@ using System.Collections;
 
 public class Player : MonoBehaviour
 {
-    public GameObject battery;
+    public GameObject battery1;
+    public GameObject battery2;
 
     public Rigidbody rigidBody;
     AudioSource audioSource;
@@ -83,10 +84,33 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Battery")
+        if (other.gameObject.name == "Battery(1)")
         {
             healthPlayer = 100;
-            Destroy(battery);
+            Destroy(battery1);
+        }
+        else if (other.gameObject.name == "Battery(2)")
+        {
+            healthPlayer = 100;
+            Destroy(battery2);
+        }
+
+        if (other.tag == "Finish")
+        {
+            Invoke("Restart", 2);
+        }
+    }
+
+    void Restart()
+    {
+        SceneManager.LoadScene(0);
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.name == "Finish")
+        {
+            Invoke("Restart", 2);
         }
     }
 }
