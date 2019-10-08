@@ -34,7 +34,7 @@ public class ButtonUp : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         if (onObject && Input.GetMouseButton(0))
         {
             //player.transform.Translate(Vector3.up * flySpeed * Time.deltaTime);
-            pl.rigidBody.AddRelativeForce(Vector3.up * pl.flySpeed);
+            pl.rigidBody.AddRelativeForce(Vector3.up * pl.flySpeed * Time.deltaTime);
             pl.healthPlayer -= 1;
             if (audioSource.isPlaying == false)
             {
