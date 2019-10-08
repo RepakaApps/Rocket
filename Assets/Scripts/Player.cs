@@ -6,6 +6,8 @@ using System.Collections;
 
 public class Player : MonoBehaviour
 {
+    public GameObject battery;
+
     public Rigidbody rigidBody;
     AudioSource audioSource;
     public ParticleSystem flyPartical;
@@ -76,6 +78,15 @@ public class Player : MonoBehaviour
             flySpeed = 0;
             audioSource.Stop();
             flyPartical.Stop();
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.tag == "Battery")
+        {
+            healthPlayer = 100;
+            Destroy(battery);
         }
     }
 }
